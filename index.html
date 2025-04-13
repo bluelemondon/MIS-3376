@@ -1,3 +1,310 @@
+<!doctype html>
+<!-- 
+    Name: Raven Moore
+    File: Homework2.html
+    Date Created: 2025-01-05
+    Date Updated:2025-01-09
+    Purpose: Homework1 MIS 3376
+
+    to do: 
+    provide comments to explain code n sources
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Raven Homework1</title>
+        <link rel="stylesheet" href="HW3.css"> <!--stylesheet-->
+        <link rel"contactpage" href="contact.html"><!--contact page-->
+        <link rel="submitpage" href="submission.html"> <!--submit page-->
+    </head>
+    <body>
+        <div id="header">
+        <table class="header" width="100%">
+            <tr>
+                <th class="header">
+                    <tr>
+                        <td>
+                        <img
+                                id="logo" 
+                                src="./LOGO.jpg" 
+                                alt="Archangel"
+                                width="100" 
+                                title="Company logo: Archangel"
+                            >
+                        </td>
+                        <td class="logoname" valign="middle" align="center">Archangel Hope <br> Medical Center</br>
+                        </td>
+                        <td valign="bottom" align="right">Todays date: <span id="today"> <a href="./homework1.js" title="Today's date"></a></span>
+                        </td>
+                    </tr>
+            </tr>
+        </table>
+     </div>
+    <div id="body">
+        <form id="careform" name="careform" action="submission.html" onsubmit="checkPassword()">
+        <table class="styleform" align="center">
+            <tr>
+                <th  class="heading" colspan="7">General Information</th>
+           </tr>
+            <tr>
+                <td align=left>
+                    <label for="name" title="Name field">*Name</label>
+                </td>
+                <td></td>
+                <td algin right>*</td>
+            </tr>
+            <tr>
+                <td>
+                    <input  type="text" 
+                            size="28" 
+                            minlength="1"
+                            maxlength="30" 
+                            id="firstname" 
+                            name="Firstname" 
+                            pattern="^[A-Za-z' -]+$"
+                            required
+                            oninvalid="this.setCustomValidity(' Must contain 1-30 characters;letters, apostrophes and dashes only')"
+                            oninput="this.setCustomValidity('')"
+                            placeholder="(First name)"
+                            title="Enter first name"
+                    > 
+                </td>
+                <td>
+                    <input  type="text" 
+                            size="4"   
+                            maxlength="1" 
+                            id="middleinit" 
+                            name="middleinit" 
+                            pattern="^[A-Za-z]"
+                            oninvalid="this.setCustomValidity('Can only contain a single letter')"
+                            oninput="this.setCustomValidity('')"
+                            placeholder="(MI)"
+                            title="Enter middle initial"
+                    > 
+                </td>
+               
+                <td>
+                     <input type="text" 
+                            size="28" 
+                            maxlength="25" 
+                            id="lastname" name="lastname" 
+                            required 
+                            pattern="^[A-Za-z' -2-5]+$"
+                            oninvalid="this.setCustomValidity('Only 1-30 characters, letters, apostrphe, nnumbers 2-5, dashes please')"
+                            oninput="this.setCustomValidity('')"
+                            placeholder="(Last name)"
+                            title="Enter last name"
+                    > 
+                </td>
+            </tr>
+
+            <tr>
+                <td align=left> <label for="socialsec" title="Social Security Number">*SSN</label></td>
+                <td></td>
+                <td align=left> <label for="DOB" title="Date of Birth">*Date of Birth</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password"
+                            size="28"
+                            maxlength="11" 
+                            id="socialsec" 
+                            name="SSN" 
+                            required
+                            oninput="this.setCustomValidity('')"
+                            oninvalid="this.setCustomValidity('Social Security number is Required')"
+                            placeholder="(XXX-XX-XXXX)"
+                            title="Enter SSN in the format XXX-XX-XXXX"
+                    >
+                </td>
+            
+                <td></td>
+                <td align=left>
+                    <input type="date"
+                            size="01"
+                            maxlength="13"
+                            id="DOB"
+                            name="DOB"
+                            required
+                            pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19[0-9]{2}|20[0-2][0-9])$"
+                            oninput="this.setCustomValidity('')"
+                            oninvalid="this.setCustomValidity('format MM/DD/YYYY')"
+                            placeholder="MM-DD-YYYY"
+                            title="Select Date of Birth"
+                    >
+                </td>
+            <tr>
+                <td>
+                    <input type="checkbox" onclick="show1()" title="Check to reveal hidden information">Show
+                </td>
+            </tr>
+            </table>
+            <table align=center>
+            <tr><td></td></tr>
+            <tr>
+                <td>
+                    <label id="gender" title="Select gender">Sex:</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="radio" 
+                    name="msex" 
+                    value="Male" />
+                    <span title="Select male gender">Male</span>
+                
+                    <input type="radio" 
+                    name="fsex" 
+                    value="Female" />
+                    <span title="Select female gender">Female</span>
+            
+                    <input type="radio" 
+                    name="osex" 
+                    value="othergender" />
+                    <span title="Select other gender">Other</span>
+                </td>
+            </tr>
+            <tr>
+                <td align=left>
+                    <label for="addr1" title="Address line 1">*Address Line 1</label>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <input type="text"
+                            size="75"
+                            minlength="1"
+                            maxlength="30" 
+                            id="addr1" 
+                            name="addr1" 
+                            required
+                            oninvalid="this.setCustomValidity('At least 1 address line Required')"
+                            oninput="this.setCustomValidity('')"
+                            title="Enter primary address line"
+                    >
+                </td>
+                <tr>
+                    <td  align=left>
+                    <label for="addr2" title="Address line 2">Address Line 2</label>
+                    </td>
+                </tr>
+                <td>
+                    <input type="text"
+                            size="75"
+                            minlength="4"
+                            maxlength="30" 
+                            id="addr2" 
+                            name="addr2"  
+                            oninvalid="this.setCustomValidity('At least 1 address line Required')"
+                            oninput="this.setCustomValidity('')"
+                            placeholder="Apt.#, Building, etc"
+                            title="Enter secondary address line (if applicable)"
+                    >
+                </td>
+        </table>
+        <table align=center class="location">
+           
+            <tr>
+                <td align=left>
+                    <label for="City" title="City field">*City</label>
+               </td>
+               <td align=left>
+                    <label for="State" title="State field">*State</label>
+                </td>
+                <td align=left>
+                    <label for="Zcode" title="Zipcode field">*Zipcode</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" 
+                    size="21.7" 
+                    minlength="1"
+                    maxlength="30" 
+                    id="City" 
+                    name="City" 
+                    required
+                    oninvalid="this.setCustomValidity('Enter City')"
+                    oninput="this.setCustomValidity('')"
+                    title="Enter city name"
+                    >
+                </td>
+                <td> <!--from your example form-->
+                     <select required title="Select your state">
+                        <option value=""></option>
+                        <option value="AL">Al</option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                        <option value="AR">AR</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DE">DE</option>
+                        <option value="DC">DC</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="IA">IA</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="ME">ME</option>
+                        <option value="MD">MD</option>
+                        <option value="MA">MA</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MS">MS</option>
+                        <option value="MO">MO</option>
+                        <option value="MT">MT</option>
+                        <option value="NE">NE</option>
+                        <option value="NV">NV</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NY">NY</option>
+                        <option value="NC">NC</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WV">WV</option>
+                        <option value="WI">WI</option>
+                        <option value="WY">WY</option>
+                     </select>
+                        </td>
+                <td>
+                     <input type="text" 
+                    pattern="[0-9]{5}"
+                    size="25"
+                    minlength="5" 
+                    maxlength="10"
+                    id="zip" 
+                    name="zip" 
+                    required
+                    pattern="^[0-9-]$"
+                    oninvalid="this.setCustomValidity('5 Digit Zip/Postal Code required')"
+                    oninput="this.setCustomValidity('')"
+                    placeholder="5 digit zip"
+                    title="Enter your 5-digit zip code"
+                     >
+                </td>
+            </tr>
+            
+        </table>
 <table class="Patientinfo" align="center" colspan='2'>
     <th class="heading" title="This section gathers the patient's general information">Patient Information</th>
     <tr>
