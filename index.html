@@ -14,8 +14,8 @@
         <meta charset="utf-8">
         <title> Raven Homework1</title>
         <link rel="stylesheet" href="HW3.css"> <!--stylesheet-->
-        <link rel"contact"  href="MIS-3376/contact.html"> <!--contact page-->
-        <link rel="submission" href="submission.html"> <!--submit page-->
+        <a href="contact.html">Contact</a>
+        <a href="submission.html">Submit</a> <!--submit page-->
 
 
     </head>
@@ -42,7 +42,7 @@
         </table>
      </div>
     <div id="body">
-        <form id="careform" name="careform" action="./Submission.html" onsubmit="checkPassword()">
+        <form id="careform" name="careform" action="submission.html" onsubmit="checkPassword()">
         <table class="styleform" align="center">
             <tr>
                 <th  class="heading" colspan="7">General Information</th>
@@ -307,7 +307,7 @@
                 </td>
             </tr>
             <tr align=left><td>
-                <lable>Symptoms:</td></tr>
+                <label>Symptoms:</td></tr>
             <tr>
                 <td>
                 <input type="checkbox" name="fever" value="1" checked /><span>Fever</span>
@@ -433,7 +433,7 @@
                         size="40"
                         id="confirmPassword"
                         name="confirmPassword" 
-                        oninput="checkPassword"
+                        oninput="checkPassword()"
                         required>
                 </td>
             </tr>
@@ -446,7 +446,7 @@
                 <td>
                     <iframe id="reviewFrame" style="width: 100%; height: 200px; border: 1px solid black;"></iframe>
                     <button type="button" value="Review" onclick="reviewdata()">Review</button>
-                    <input type="submit"> <a href="submission.html"></a></input>
+                    <input type="submit">
                     <input type="reset"></input>
                 </td>
             </tr>
