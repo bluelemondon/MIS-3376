@@ -126,13 +126,13 @@ function validateEmail() {
     if (email == "") {
       emailError.innerHTML = "Email cannot be blank.";
       return false;
-    } else if (!emailR.test(email)) {
+    } 
+    else if (!emailR.test(email)) {
       emailError.innerHTML = "Please enter a valid email address.";
       return false;
-    } else {
-      emailError.innerHTML = "";
-      alert("Email is valid!");
-      return true;
+    }
+    else {
+          return true;
     }
   }
 function validatePassword() {
