@@ -206,7 +206,6 @@ document.getElementById("username").addEventListener("input", function () {
                 return false;
                     }    
               else {
-                  alert("Password is valid!");
                   return true;
                    }
         }
