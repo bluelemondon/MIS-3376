@@ -133,13 +133,15 @@ function validateEmail() {
       return true;
     }
   }
-function validatePassword() {
-    var uid = document.getElementById("careform").value;
+function validatePword() {
+    var uid = document.getElementById("username").value;
     var pword = document.getElementById("password").value;
-    var errorList = document.getElementById("errorList");
-    errorList.innerHTML = ""; // clear previous errors
     var errorMessage = [];
+    var errorDisplay = document.getElementById("pwordErrors");
 
+    errorDisplay.innerHTML = ""; // clear previous errors
+
+    // Validation rules
     if (!pword.match(/[a-z]/)) {
       errorMessage.push("Enter at least one lowercase letter");
     }
@@ -156,18 +158,20 @@ function validatePassword() {
       errorMessage.push("Password can't contain user ID");
     }
 
+    // Show errors if any
     if (errorMessage.length > 0) {
       for (var i = 0; i < errorMessage.length; i++) {
         var li = document.createElement("li");
         li.textContent = errorMessage[i];
-        errorList.appendChild(li);
+        errorDisplay.appendChild(li);
       }
-      return false; 
-    } else {
-      alert("Password is valid!");
-      return true;
+      return false; // prevent form submission
     }
+
+    alert("Password is valid!");
+    return true;
   }
+
 function show2() {
   var x = document.getElementById("password");
   if (x.type === "password") {
