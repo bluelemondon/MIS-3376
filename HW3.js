@@ -301,7 +301,7 @@ function reviewdata() {
             }
         }
     }
-    function validateEverything() {
+    function validateAll() {
     let valid = true;
 
     if (!validateFname()) {
