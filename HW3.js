@@ -170,7 +170,7 @@ function validatePassword() {
       return false; // prevent form submission
     }
 
-    alert("Password is valid!");
+
     return true;
   }
 
