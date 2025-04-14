@@ -345,7 +345,13 @@
     </tr>
     <tr align=center class="textbox">
         <td>
-            <textarea name="descript" id="descript" maxlength="200" rows="7" cols="85" pattern="^[^"]+$" title="Provide a description of your visit, up to 200 characters"></textarea>
+            <textarea 
+                name="descript" 
+                id="descript" 
+                maxlength="200" 
+                rows="7" cols="85" 
+                pattern="^[^"]+$" title="Provide a description of your visit, up to 200 characters">
+            </textarea>
         </td>
     </tr>
     <tr>
@@ -353,7 +359,16 @@
     </tr>
     <tr>
         <td class="slidecontainer">1
-            <input type="range" min="0" step="1" max="10" value="50" class="slider" id="pain range" oninput="this.nextElementSibling.value=this.value" title="Rate your pain on a scale of 0-10">
+            <input 
+                type="range" 
+                min="0" 
+                step="1" 
+                max="10" 
+                value="50" 
+                class="slider"
+                id="pain range" 
+                oninput="this.nextElementSibling.value=this.value" 
+                title="Rate your pain on a scale of 0-10">
             <output>10+</output>
             <br>
             <span id="rangedisplay"></span>
@@ -388,10 +403,12 @@
                     id="username" 
                     required 
                     pattern="^[A-Za-z-_]+$" 
+                    onblur="validateUserid()"
                     oninvalid="this.setCustomValidity('Must be 5-30 characters, letters, underscore, and dashes only')" 
                     oninput="this.setCustomValidity('')" 
                     placeholder="username" 
                     title="Choose a username (5-30 characters, letters, dashes, and underscores allowed)">
+                    <span class="error" id="uid-error"></span>
         </td>
     </tr>
     <tr align="center">
@@ -409,7 +426,7 @@
                 oninvalid="this.setCustomValidity('Must be a valid email')" 
                 oninput="this.setCustomValidity('')" 
                 placeholder="                                                                                 @gmail.com" title="Enter a valid email address (e.g., user@example.com)">
-        <br><span id="emailError" style="color:red;"></span></br>
+        <br><span id="emailError"></span></br>
         </td>
     </tr>
     <tr align="center">
