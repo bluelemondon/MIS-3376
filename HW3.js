@@ -19,6 +19,32 @@ document.getElementById("today").innerHTML = new Date().toLocaleDateString();
     document.getElementById('DOB').setAttribute('max', maxDateString);
 
 //end of w3 schools
+function show1() {
+  var x = document.getElementById("socialsec");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+function show2() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function show3() {
+  var x = document.getElementById("confirmPassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
 function validateSsn() {
     const ssn = document.getElementById("socialsec").value;
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
@@ -75,16 +101,12 @@ function validateZcode() {
 
 var emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-function show1() {
-  var x = document.getElementById("socialsec");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
 
-function validateUserID() {
+document.getElementById("username").addEventListener("input", function () {
+  this.value = this.value.replace(/\s+/g, '').toLowerCase();
+});
+// https://www.geeksforgeeks.org/password-matching-using-javascript/
+function validateUsername() {
     uid = document.getElementById("username").value.toLowerCase();
     document.getElementById("username").value = uid;
 
@@ -172,29 +194,6 @@ function validatePassword() {
     }
 }
 
-function show2() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
-function show3() {
-  var x = document.getElementById("confirmPassword");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
-
-document.getElementById("username").addEventListener("input", function () {
-  this.value = this.value.replace(/\s+/g, '').toLowerCase();
-});
-// https://www.geeksforgeeks.org/password-matching-using-javascript/
  function confirmPassword(form) {
            var x= document.getElementById("password");
           var y= document.getElementById("confirmPassword");
@@ -242,6 +241,63 @@ function reviewdata() {
             }
         }
     }
+    function validateEverything() {
+    let valid = true;
+
+    if (!validateFname()) {
+        valid = false;
+    }
+    if (!validateMini()) {
+        valid = false;
+    }
+    if (!validateLname()) {
+        valid = false;
+    }
+    if (!validateDob()) {
+        valid = false;
+    }
+    if (!validateSsn()) {
+        valid = false;
+    }
+    if (!validateAddress1()) {
+        valid = false;
+    }
+    if (!validateCity()) {
+        valid = false;
+    }
+    if (!validateZcode()) {
+        valid = false;
+    }
+    if (!validateEmail()) {
+        valid = false;
+    }
+    if (!validatePhone()) {
+        valid = false;
+    }
+    if (!validateUid()) {
+        valid = false;
+    }
+    if (!validatePword()) {
+        valid = false;
+    }
+    if (!confirmPword()) {
+        valid = false;
+    }
+     if (valid) {
+         document.getElementById("submit").disabled = false;
+     } else{
+        showAlert();
+     }
+ }
+    function showAlert() {
+    var alertBox = document.getElementById("alert-box");
+    var closeAlert = document.getElementById("close-alert");
+
+    alertBox.style.display = "block";
+    closeAlert.onclick = function() {
+        alertBox.style.display = "none";
+    };
+}
     
     var iframe = document.getElementById("reviewFrame");
     iframe.style.display = "block"; 
