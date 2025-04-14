@@ -350,7 +350,7 @@ function reviewdata() {
      }
  }
     function showAlert() {
-    var alertBox = document.getElementById("alert-foot");
+    var alertBox = document.getElementById("alert-box");
     var closeAlert = document.getElementById("closealert");
 
     alertBox.style.display = "block";
