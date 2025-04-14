@@ -237,10 +237,12 @@
                     id="City" 
                     name="City" 
                     required
+                    onblur="validateCity()"
                     oninvalid="this.setCustomValidity('Enter City')"
                     oninput="this.setCustomValidity('')"
                     title="Enter city name"
                     >
+                    <span class="error" id="city-error"></span>
                 </td>
                 <td> <!--from your example form-->
                      <select required title="Select your state">
