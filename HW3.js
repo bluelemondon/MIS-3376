@@ -44,7 +44,22 @@ function show3() {
     x.type = "password";
   }
 }
+function validateMini() {
+    let mini = document.getElementById("mini").value;
+    const namePattern = /^[A-Z]+$/;
 
+    mini = mini.toUpperCase();
+    document.getElementById("mini").value = mini;
+
+    if (!mini.match(namePattern)) {
+        document.getElementById("mini-error").innerHTML = 
+        "Middle initial must be a single uppercase letter";
+        return false;
+    } else {
+        document.getElementById("mini-error").innerHTML = "";
+        return true;
+    }
+}
 function validateSsn() {
     const ssn = document.getElementById("socialsec").value;
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
@@ -75,6 +90,17 @@ function validateDob() {
         return false;
     } else {
         document.getElementById("dob-error").innerHTML = "";
+        return true;
+    }
+}
+function validateCity() {
+    city = document.getElementById("city").value.trim();
+
+    if (!city) {
+        document.getElementById("city-error").innerHTML = "City can't be blank";
+        return false;
+    } else {
+        document.getElementById("city-error").innerHTML = "";
         return true;
     }
 }
