@@ -350,8 +350,8 @@ function reviewdata() {
      }
  }
     function showAlert() {
-    var alertBox = document.getElementById("alert-box");
-    var closeAlert = document.getElementById("close-alert");
+    var alertBox = document.getElementById("alert-foot");
+    var closeAlert = document.getElementById("closealert");
 
     alertBox.style.display = "block";
     closeAlert.onclick = function() {
