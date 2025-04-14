@@ -44,19 +44,53 @@ function show3() {
     x.type = "password";
   }
 }
-function validateMini() {
-    let mini = document.getElementById("mini").value;
+function validateFname() {
+  return validateNameField("fname", "fname-error");
+}
+
+function validateLname() {
+  return validateNameField("lname", "lname-error");
+}
+
+// Shared logic for both
+function validateNameField(fieldId, errorId) {
+  var name = document.getElementById(fieldId).value.trim();
+  var errorDisplay = document.getElementById(errorId);
+  errorDisplay.textContent = "";
+
+  var namePattern = /^[a-zA-Z'-]{1,30}$/;
+
+  if (name === "") {
+    errorDisplay.textContent = "This field cannot be empty.";
+    return false;
+  }
+
+  if (!namePattern.test(name)) {
+    errorDisplay.textContent = "Only letters, apostrophes, and dashes are allowed.";
+    return false;
+  }
+
+  if (name.length < 1 || name.length > 30) {
+    errorDisplay.textContent = "Must be between 1 and 30 characters.";
+    return false;
+  }
+
+  return true;
+}
+
+function validateMinin() {
+    let mini = document.getElementById("middleinit").value;
     const namePattern = /^[A-Z]+$/;
 
     mini = mini.toUpperCase();
-    document.getElementById("mini").value = mini;
+    document.getElementById("middleinit").value = mini;
 
     if (!mini.match(namePattern)) {
-        document.getElementById("mini-error").innerHTML = 
+        document.getElementById("midin-error").innerHTML = 
         "Middle initial must be a single uppercase letter";
         return false;
     } else {
-        document.getElementById("mini-error").innerHTML = "";
+        document.getElementById("midin-error").innerHTML = "";
         return true;
     }
 }
