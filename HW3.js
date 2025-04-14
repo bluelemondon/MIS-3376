@@ -81,6 +81,7 @@ function show1() {
     x.type = "password";
   }
 }
+
 function validateUserID() {
     uid = document.getElementById("username").value.toLowerCase();
     document.getElementById("username").value = uid;
@@ -132,7 +133,7 @@ function validateEmail() {
       return true;
     }
   }
-function checkPassword() {
+function validatePword() {
     var uid = document.getElementById("careform").value;
     var pword = document.getElementById("password").value;
     var errorList = document.getElementById("errorList");
@@ -190,13 +191,14 @@ document.getElementById("username").addEventListener("input", function () {
   this.value = this.value.replace(/\s+/g, '').toLowerCase();
 });
 // https://www.geeksforgeeks.org/password-matching-using-javascript/
- function checkPassword(form) {
+ function confirmPassword(form) {
            var x= document.getElementById("password");
           var y= document.getElementById("confirmPassword");
 
           if (x!= y) {
                 alert("\nPassword did not match: Please try again...")
                 return false;
+                    }    
               else {
                   alert("Password is valid!");
                   return true;
