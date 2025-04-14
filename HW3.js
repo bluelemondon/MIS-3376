@@ -301,7 +301,7 @@ function reviewdata() {
             }
         }
     }
-    ]
+}
     function validateAll() {
     let valid = true;
 
