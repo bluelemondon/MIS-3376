@@ -81,6 +81,40 @@ function show1() {
     x.type = "password";
   }
 }
+function validateUserID() {
+    uid = document.getElementById("username").value.toLowerCase();
+    document.getElementById("username").value = uid;
+
+    if (uid.length == 0) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID can't be blank";
+        return false;
+    }
+
+    if (!isNaN(uid.charAt(0))) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID can't start with a number";
+        return false;
+    }
+
+    let regex = /^[a-zA-Z0-9_-]+$/;
+    if (!regex.test(uid)) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID can only have letters, numbers, underscores, and dashes";
+        return false;
+    } else if (uid.length < 5) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID must be at least 5 characters";
+        return false;
+    } else if (uid.length > 30) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID can't exceed 30 characters";
+        return false;
+    } else {
+        document.getElementById("uid-error").innerHTML = "";
+        return true;
+    }
+}
 function validateEmail() {
     var email = document.getElementById("email").value;
     var emailError = document.getElementById("emailError");
@@ -98,7 +132,41 @@ function validateEmail() {
       return true;
     }
   }
+function checkPassword() {
+    var uid = document.getElementById("careform").value;
+    var pword = document.getElementById("password").value;
+    var errorList = document.getElementById("errorList");
+    errorList.innerHTML = ""; // clear previous errors
+    var errorMessage = [];
 
+    if (!pword.match(/[a-z]/)) {
+      errorMessage.push("Enter at least one lowercase letter");
+    }
+    if (!pword.match(/[A-Z]/)) {
+      errorMessage.push("Enter at least one uppercase letter");
+    }
+    if (!pword.match(/[0-9]/)) {
+      errorMessage.push("Enter at least one number");
+    }
+    if (!pword.match(/[!\@#\$%&*\-_\\.+\(\)]/)) {
+      errorMessage.push("Enter at least one special character");
+    }
+    if (pword.includes(uid) && uid !== "") {
+      errorMessage.push("Password can't contain user ID");
+    }
+
+    if (errorMessage.length > 0) {
+      for (var i = 0; i < errorMessage.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = errorMessage[i];
+        errorList.appendChild(li);
+      }
+      return false; 
+    } else {
+      alert("Password is valid!");
+      return true;
+    }
+  }
 function show2() {
   var x = document.getElementById("password");
   if (x.type === "password") {
@@ -117,6 +185,7 @@ function show3() {
   }
 }
 
+
 document.getElementById("username").addEventListener("input", function () {
   this.value = this.value.replace(/\s+/g, '').toLowerCase();
 });
@@ -128,7 +197,10 @@ document.getElementById("username").addEventListener("input", function () {
           if (x!= y) {
                 alert("\nPassword did not match: Please try again...")
                 return false;
-            }
+              else {
+                  alert("Password is valid!");
+                  return true;
+                   }
         }
 
 //your example with new ids and edits
