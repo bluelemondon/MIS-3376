@@ -51,7 +51,7 @@
                     <label for="name" title="Name field">*Name</label>
                 </td>
                 <td></td>
-                <td algin right>*</td>
+                <td align="right">*</td>
             </tr>
             <tr>
                 <td>
@@ -93,7 +93,7 @@
                             maxlength="25" 
                             id="lastname" name="lastname" 
                             required 
-                            pattern="^[A-Za-z' -2-5]+$"
+                            pattern="^[A-Za-z' -]+$"
                             onblur="validateLname()"
                             oninvalid="this.setCustomValidity('Only 1-30 characters, letters, apostrphe, nnumbers 2-5, dashes please')"
                             oninput="this.setCustomValidity('')"
@@ -160,17 +160,17 @@
             <tr>
                 <td>
                     <input type="radio" 
-                    name="msex" 
+                    name="gender" 
                     value="Male" />
                     <span title="Select male gender">Male</span>
                 
                     <input type="radio" 
-                    name="fsex" 
+                    name="gender" 
                     value="Female" />
                     <span title="Select female gender">Female</span>
             
                     <input type="radio" 
-                    name="osex" 
+                    name="gender" 
                     value="othergender" />
                     <span title="Select other gender">Other</span>
                 </td>
@@ -307,7 +307,6 @@
                     id="zip" 
                     name="zip" 
                     required
-                    pattern="^[0-9-]$"
                     onblur="validateZcode()"
                     oninvalid="this.setCustomValidity('5 Digit Zip/Postal Code required')"
                     oninput="this.setCustomValidity('')"
@@ -522,3 +521,4 @@
 <script src="HW3.js"></script>
 
 </body>
+</html>
