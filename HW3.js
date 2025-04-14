@@ -157,22 +157,20 @@ function validatePassword() {
       errorMessage.push("Enter at least one special character");
     }
     if (pword.includes(uid) && uid !== "") {
-      errorMessage.push("Password can't contain user ID");
+      errorMessage.push("Password can't contain username");
     }
-
-    // Show errors if any
     if (errorMessage.length > 0) {
       for (var i = 0; i < errorMessage.length; i++) {
         var li = document.createElement("li");
         li.textContent = errorMessage[i];
         errorDisplay.appendChild(li);
       }
-      return false; // prevent form submission
+      return false; 
     }
-
-
-    return true;
-  }
+    else{
+        return true;
+    }
+}
 
 function show2() {
   var x = document.getElementById("password");
