@@ -72,7 +72,9 @@ function validateZcode() {
     document.getElementById("zcode-error").innerHTML = "";
     return true;
 }
+
 var emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
 function show1() {
   var x = document.getElementById("socialsec");
   if (x.type === "password") {
