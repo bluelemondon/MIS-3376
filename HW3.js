@@ -133,7 +133,7 @@ function validateEmail() {
       return true;
     }
   }
-function validatePword() {
+function validatePassword() {
     var uid = document.getElementById("username").value;
     var pword = document.getElementById("password").value;
     var errorMessage = [];
