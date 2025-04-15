@@ -45,56 +45,38 @@ function show3() {
   }
 }
 function validateFname() {
-  var fname = document.getElementById("firstname").value.trim();
-  var fnameError = document.getElementById("fname-error");
-  fnameError.textContent = ""; // Clear previous error
-
-  var pattern = /^[a-zA-Z'-]{1,30}$/;
-
-  if (fname === "") {
-    fnameError.textContent = "First name cannot be empty.";
-    return false;
-  }
-
-  if (!pattern.test(fname)) {
-    fnameError.textContent = "Only letters, apostrophes, and dashes are allowed.";
-    return false;
-  }
-
-  if (fname.length < 1 || fname.length > 30) {
-    fnameError.textContent = "First name must be between 1 and 30 characters.";
-    return false;
-  }
-
-  return true;
+  return validateNameField("fname", "fname-error");
 }
 
 function validateLname() {
-  var lname = document.getElementById("lastname").value.trim();
-  var lnameError = document.getElementById("lname-error");
-  lnameError.textContent = ""; // Clear previous error
+  return validateNameField("lname", "lname-error");
+}
 
-  var pattern = /^[a-zA-Z'-]{1,30}$/;
+// Shared logic for both
+function validateNameField(fieldId, errorId) {
+  var name = document.getElementById(fieldId).value.trim();
+  var errorDisplay = document.getElementById(errorId);
+  errorDisplay.textContent = "";
 
-  if (lname === "") {
-    lnameError.textContent = "Last name cannot be empty.";
+  var namePattern = /^[a-zA-Z'-]{1,30}$/;
+
+  if (name === "") {
+    errorDisplay.textContent = "This field cannot be empty.";
     return false;
   }
 
-  if (!pattern.test(lname)) {
-    lnameError.textContent = "Only letters, apostrophes, and dashes are allowed.";
+  if (!namePattern.test(name)) {
+    errorDisplay.textContent = "Only letters, apostrophes, and dashes are allowed.";
     return false;
   }
 
-  if (lname.length < 1 || lname.length > 30) {
-    lnameError.textContent = "Last name must be between 1 and 30 characters.";
+  if (name.length < 1 || name.length > 30) {
+    errorDisplay.textContent = "Must be between 1 and 30 characters.";
     return false;
   }
 
   return true;
 }
-
-
 
 function validateMinin() {
     let mini = document.getElementById("middleinit").value;
@@ -117,7 +99,8 @@ function validateSsn() {
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
 
     if (!ssnR.test(ssn)) {
-        alert( "Please enter a valid 9 digit SSN");
+        document.getElementById("ssn-error").innerHTML = 
+        "Please enter a valid 9 digit SSN";
         return false;
     } else {
         document.getElementById("ssn-error").innerHTML = "";
@@ -125,7 +108,7 @@ function validateSsn() {
     }
 }
 function validateDob() {
-   let dob = document.getElementById("DOB");
+    dob = document.getElementById("DOB");
     let date = new Date(dob.value);
     let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
 
@@ -144,33 +127,6 @@ function validateDob() {
         return true;
     }
 }
-
-function validateAddr1() {
-    var address = document.getElementById("addr1").value.trim();
-    var addressError = document.getElementById("addr1-error");
-    addressError.textContent = ""; // clear previous error
-
-    // Accepts letters, numbers, spaces, and basic punctuation
-    var pattern = /^[a-zA-Z0-9\s.,#-]{5,50}$/;
-
-    if (address === "") {
-        addressError.textContent = "Address cannot be empty.";
-        return false;
-    }
-
-    if (!pattern.test(address)) {
-        addressError.textContent = "Invalid characters in address.";
-        return false;
-    }
-
-    if (address.length < 5 || address.length > 50) {
-        addressError.textContent = "Address must be 5–50 characters.";
-        return false;
-    }
-
-    return true;
-}
-
 function validateCity() {
     city = document.getElementById("city").value.trim();
 
@@ -211,7 +167,7 @@ document.getElementById("username").addEventListener("input", function () {
 });
 // https://www.geeksforgeeks.org/password-matching-using-javascript/
 function validateUsername() {
-    let uid = document.getElementById("username").value.toLowerCase();
+    uid = document.getElementById("username").value.toLowerCase();
     document.getElementById("username").value = uid;
 
     if (uid.length == 0) {
@@ -246,7 +202,7 @@ function validateUsername() {
 }
 function validateEmail() {
     var email = document.getElementById("email").value;
-    var emailError = document.getElementById("email-error");
+    var emailError = document.getElementById("emailError");
     var emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     if (email == "") {
@@ -302,7 +258,7 @@ function validatePassword() {
            var x= document.getElementById("password");
           var y= document.getElementById("confirmPassword");
 
-          if (x.value!= y.value) {
+          if (x!= y) {
                 alert("\nPassword did not match: Please try again...")
                 return false;
                     }    
@@ -345,14 +301,13 @@ function reviewdata() {
             }
         }
     }
-}
-    function validateAll() {
+    function validateEverything() {
     let valid = true;
 
     if (!validateFname()) {
         valid = false;
     }
-    if (!validateMinin()) {
+    if (!validateMini()) {
         valid = false;
     }
     if (!validateLname()) {
@@ -364,7 +319,7 @@ function reviewdata() {
     if (!validateSsn()) {
         valid = false;
     }
-    if (!validateAddr1()) {
+    if (!validateAddress1()) {
         valid = false;
     }
     if (!validateCity()) {
@@ -376,13 +331,16 @@ function reviewdata() {
     if (!validateEmail()) {
         valid = false;
     }
-    if (!validateUsername()) {
+    if (!validatePhone()) {
         valid = false;
     }
-    if (!validatePassword()) {
+    if (!validateUid()) {
         valid = false;
     }
-    if (!confirmPassword()) {
+    if (!validatePword()) {
+        valid = false;
+    }
+    if (!confirmPword()) {
         valid = false;
     }
      if (valid) {
@@ -392,7 +350,7 @@ function reviewdata() {
      }
  }
     function showAlert() {
-    var alertBox = document.getElementById("alert-box");
+    var alertBox = document.getElementById("alert-foot");
     var closeAlert = document.getElementById("closealert");
 
     alertBox.style.display = "block";
@@ -410,4 +368,3 @@ function reviewdata() {
     doc.write(formoutput);
     doc.close();
 }
-
