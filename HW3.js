@@ -45,7 +45,7 @@ function show3() {
   }
 }
 function validateFname() {
-  var fname = document.getElementById("fname").value.trim();
+  var fname = document.getElementById("firstname").value.trim();
   var fnameError = document.getElementById("fname-error");
   fnameError.textContent = ""; // Clear previous error
 
@@ -70,7 +70,7 @@ function validateFname() {
 }
 
 function validateLname() {
-  var lname = document.getElementById("lname").value.trim();
+  var lname = document.getElementById("lastname").value.trim();
   var lnameError = document.getElementById("lname-error");
   lnameError.textContent = ""; // Clear previous error
 
