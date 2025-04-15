@@ -291,7 +291,8 @@ function validatePassword() {
                 return false;
                     }    
               else {
-                  return true;
+        document.getElementById("pword2-error").innerHTML = "";
+        return true;
                    }
         }
 
