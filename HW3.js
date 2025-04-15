@@ -330,8 +330,16 @@ function reviewdata() {
             }
         }
     }
-    return formoutput;
+        var iframe = document.getElementById("reviewFrame");
+    iframe.style.display = "block"; 
+    // Show form output in iframe
+    var iframe = document.getElementById("reviewFrame");
+    var doc = iframe.contentDocument || iframe.contentWindow.document;
+    doc.open();
+    doc.write(formoutput);
+    doc.close();
 }
+
    function validateAll() {
     let valid = true;
 
@@ -369,12 +377,4 @@ function reviewdata() {
     };
 }
     
-    var iframe = document.getElementById("reviewFrame");
-    iframe.style.display = "block"; 
-    // Show form output in iframe
-    var iframe = document.getElementById("reviewFrame");
-    var doc = iframe.contentDocument || iframe.contentWindow.document;
-    doc.open();
-    doc.write(formoutput);
-    doc.close();
 
