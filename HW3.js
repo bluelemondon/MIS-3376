@@ -147,8 +147,8 @@ function validateDob() {
 }
 
 function validateAddr1() {
-    var address = document.getElementById("address1").value.trim();
-    var addressError = document.getElementById("address1-error");
+    var address = document.getElementById("addr1").value.trim();
+    var addressError = document.getElementById("addr1-error");
     addressError.textContent = ""; // clear previous error
 
     // Accepts letters, numbers, spaces, and basic punctuation
@@ -247,7 +247,7 @@ function validateUsername() {
 }
 function validateEmail() {
     var email = document.getElementById("email").value;
-    var emailError = document.getElementById("emailError");
+    var emailError = document.getElementById("email-error");
     var emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     if (email == "") {
