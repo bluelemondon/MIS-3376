@@ -46,7 +46,7 @@ function show3() {
 }
 function validateFname() {
   var fname = document.getElementById("fname").value.trim();
-  var fnameError = document.getElementById("fnameError");
+  var fnameError = document.getElementById("fname-error");
   fnameError.textContent = ""; // Clear previous error
 
   var pattern = /^[a-zA-Z'-]{1,30}$/;
@@ -68,9 +68,10 @@ function validateFname() {
 
   return true;
 }
+
 function validateLname() {
   var lname = document.getElementById("lname").value.trim();
-  var lnameError = document.getElementById("lnameError");
+  var lnameError = document.getElementById("lname-error");
   lnameError.textContent = ""; // Clear previous error
 
   var pattern = /^[a-zA-Z'-]{1,30}$/;
