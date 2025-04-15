@@ -45,38 +45,55 @@ function show3() {
   }
 }
 function validateFname() {
-  return validateNameField("fname", "fname-error");
-}
+  var fname = document.getElementById("fname").value.trim();
+  var fnameError = document.getElementById("fnameError");
+  fnameError.textContent = ""; // Clear previous error
 
-function validateLname() {
-  return validateNameField("lname", "lname-error");
-}
+  var pattern = /^[a-zA-Z'-]{1,30}$/;
 
-// Shared logic for both
-function validateNameField(fieldId, errorId) {
-  var name = document.getElementById(fieldId).value.trim();
-  var errorDisplay = document.getElementById(errorId);
-  errorDisplay.textContent = "";
-
-  var namePattern = /^[a-zA-Z'-]{1,30}$/;
-
-  if (name === "") {
-    errorDisplay.textContent = "This field cannot be empty.";
+  if (fname === "") {
+    fnameError.textContent = "First name cannot be empty.";
     return false;
   }
 
-  if (!namePattern.test(name)) {
-    errorDisplay.textContent = "Only letters, apostrophes, and dashes are allowed.";
+  if (!pattern.test(fname)) {
+    fnameError.textContent = "Only letters, apostrophes, and dashes are allowed.";
     return false;
   }
 
-  if (name.length < 1 || name.length > 30) {
-    errorDisplay.textContent = "Must be between 1 and 30 characters.";
+  if (fname.length < 1 || fname.length > 30) {
+    fnameError.textContent = "First name must be between 1 and 30 characters.";
     return false;
   }
 
   return true;
 }
+function validateLname() {
+  var lname = document.getElementById("lname").value.trim();
+  var lnameError = document.getElementById("lnameError");
+  lnameError.textContent = ""; // Clear previous error
+
+  var pattern = /^[a-zA-Z'-]{1,30}$/;
+
+  if (lname === "") {
+    lnameError.textContent = "Last name cannot be empty.";
+    return false;
+  }
+
+  if (!pattern.test(lname)) {
+    lnameError.textContent = "Only letters, apostrophes, and dashes are allowed.";
+    return false;
+  }
+
+  if (lname.length < 1 || lname.length > 30) {
+    lnameError.textContent = "Last name must be between 1 and 30 characters.";
+    return false;
+  }
+
+  return true;
+}
+
+
 
 function validateMinin() {
     let mini = document.getElementById("middleinit").value;
