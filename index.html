@@ -64,8 +64,8 @@
                             pattern="^[A-Za-z' -]+$"
                             required
                             onblur="validateFname()"
-                            oninvalid="this.setCustomValidity(' Must contain 1-30 characters;letters, apostrophes and dashes only')"
-                            oninput="this.setCustomValidity('')"
+                            oninvalid="validateFname()"
+                            oninput="validateFname()"
                             placeholder="(First name)"
                             title="Letter, apostrophes, and dashes only"
                     > 
