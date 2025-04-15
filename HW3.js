@@ -330,6 +330,8 @@ function reviewdata() {
             }
         }
     }
+    return formoutput
+}
    function validateAll() {
     let valid = true;
 
