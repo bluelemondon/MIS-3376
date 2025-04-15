@@ -375,6 +375,6 @@ function reviewdata() {
     var iframe = document.getElementById("reviewFrame");
     var doc = iframe.contentDocument || iframe.contentWindow.document;
     doc.open();
-    doc.write();
+    doc.write(formoutput);
     doc.close();
 
