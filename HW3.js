@@ -301,16 +301,16 @@ function reviewdata() {
             }
         }
     }
-    function validateEverything() {
+    function validateAll() {
     let valid = true;
 
-    if (!validateFname()) {
+    if (!validateFirstname()) {
         valid = false;
     }
-    if (!validateMini()) {
+    if (!validateMinin()) {
         valid = false;
     }
-    if (!validateLname()) {
+    if (!validateLastname()) {
         valid = false;
     }
     if (!validateDob()) {
@@ -331,16 +331,14 @@ function reviewdata() {
     if (!validateEmail()) {
         valid = false;
     }
-    if (!validatePhone()) {
+
+    if (!validateUsername()) {
         valid = false;
     }
-    if (!validateUid()) {
+    if (!validatePassword()) {
         valid = false;
     }
-    if (!validatePword()) {
-        valid = false;
-    }
-    if (!confirmPword()) {
+    if (!confirmPassword()) {
         valid = false;
     }
      if (valid) {
