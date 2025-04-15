@@ -146,7 +146,7 @@ function validateDob() {
     }
 }
 
-function validateAddress1() {
+function validateAddr1() {
     var address = document.getElementById("address1").value.trim();
     var addressError = document.getElementById("address1-error");
     addressError.textContent = ""; // clear previous error
@@ -365,7 +365,7 @@ function reviewdata() {
     if (!validateSsn()) {
         valid = false;
     }
-    if (!validateAddress1()) {
+    if (!validateAddr1()) {
         valid = false;
     }
     if (!validateCity()) {
