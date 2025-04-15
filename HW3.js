@@ -350,16 +350,13 @@ function reviewdata() {
     if (!validateEmail()) {
         valid = false;
     }
-    if (!validatePhone()) {
+    if (!validateUsername()) {
         valid = false;
     }
-    if (!validateUid()) {
+    if (!validatePassword()) {
         valid = false;
     }
-    if (!validatePword()) {
-        valid = false;
-    }
-    if (!confirmPword()) {
+    if (!confirmPassword()) {
         valid = false;
     }
      if (valid) {
