@@ -330,52 +330,33 @@ function reviewdata() {
         }
     }
 }
-    function validateAll() {
+   function validateAll() {
     let valid = true;
 
-    if (!validateFname()) {
-        valid = false;
-    }
-    if (!validateMinin()) {
-        valid = false;
-    }
-    if (!validateLname()) {
-        valid = false;
-    }
-    if (!validateDob()) {
-        valid = false;
-    }
-    if (!validateSsn()) {
-        valid = false;
-    }
-    if (!validateAddr1()) {
-        valid = false;
-    }
-    if (!validateCity()) {
-        valid = false;
-    }
-    if (!validateZcode()) {
-        valid = false;
-    }
-    if (!validateEmail()) {
-        valid = false;
-    }
+    if (!validateFname()) { valid = false; }
+    if (!validateMinin()) { valid = false; }
+    if (!validateLname()) { valid = false; }
+    if (!validateDob()) { valid = false; }
+    if (!validateSsn()) { valid = false; }
+    if (!validateAddr1()) { valid = false; }
+    if (!validateCity()) { valid = false; }
+    if (!validateZcode()) { valid = false; }
+    if (!validateEmail()) { valid = false; }
+    if (!validateUsername()) { valid = false; }
+    if (!validatePassword()) { valid = false; }
+    if (!confirmPassword()) { valid = false; }
 
-    if (!validateUsername()) {
-        valid = false;
+    if (valid) {
+        // If everything is valid, enable the submit button
+        document.getElementById("submit").disabled = false;
+        
+        // Optionally, you can redirect to the "thank you" page after successful validation
+        window.location.href = "thankyou.html";  // Redirect to thank you page
+    } else {
+        showAlert();  // Show alert if there's a validation issue
     }
-    if (!validatePassword()) {
-        valid = false;
-    }
-    if (!confirmPassword()) {
-        valid = false;
-    }
-     if (valid) {
-         document.getElementById("submit").disabled = false;
-     } else{
-        showAlert();
-     }
- }
+}
+
     function showAlert() {
     var alertBox = document.getElementById("alert-foot");
     var closeAlert = document.getElementById("closealert");
