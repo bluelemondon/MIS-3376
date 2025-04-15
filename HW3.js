@@ -77,7 +77,7 @@ function validateNameField(fieldId, errorId) {
   return true;
 }
 
-function validateMinin() {
+function validateMidin() {
     let mini = document.getElementById("middleinit").value;
     const namePattern = /^[A-Z]+$/;
 
@@ -334,7 +334,7 @@ function reviewdata() {
     let valid = true;
 
     if (!validateFname()) { valid = false; }
-    if (!validateMinin()) { valid = false; }
+    if (!validateMidin()) { valid = false; }
     if (!validateLname()) { valid = false; }
     if (!validateDob()) { valid = false; }
     if (!validateSsn()) { valid = false; }
