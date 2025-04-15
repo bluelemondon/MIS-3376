@@ -127,6 +127,33 @@ function validateDob() {
         return true;
     }
 }
+
+function validateAddr1() {
+    var address = document.getElementById("addr1").value.trim();
+    var addressError = document.getElementById("addr1-error");
+    addressError.textContent = ""; // clear previous error
+
+    // Accepts letters, numbers, spaces, and basic punctuation
+    var pattern = /^[a-zA-Z0-9\s.,#-]{5,50}$/;
+
+    if (address === "") {
+        addressError.textContent = "Address cannot be empty.";
+        return false;
+    }
+
+    if (!pattern.test(address)) {
+        addressError.textContent = "Invalid characters in address.";
+        return false;
+    }
+
+    if (address.length < 5 || address.length > 50) {
+        addressError.textContent = "Address must be 5–50 characters.";
+        return false;
+    }
+
+    return true;
+}
+
 function validateCity() {
     city = document.getElementById("city").value.trim();
 
@@ -255,7 +282,7 @@ function validatePassword() {
     }
 }
 
- function confirmPassword(form) {
+ function confirmPassword() {
            var x= document.getElementById("password");
           var y= document.getElementById("confirmPassword");
 
@@ -306,13 +333,13 @@ function reviewdata() {
     function validateAll() {
     let valid = true;
 
-    if (!validateFirstname()) {
+    if (!validateFname()) {
         valid = false;
     }
     if (!validateMinin()) {
         valid = false;
     }
-    if (!validateLastname()) {
+    if (!validateLname()) {
         valid = false;
     }
     if (!validateDob()) {
@@ -321,7 +348,7 @@ function reviewdata() {
     if (!validateSsn()) {
         valid = false;
     }
-    if (!validateAddress1()) {
+    if (!validateAddr1()) {
         valid = false;
     }
     if (!validateCity()) {
