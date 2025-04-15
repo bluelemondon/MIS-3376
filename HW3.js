@@ -64,8 +64,6 @@ function validateNameField(fieldId, errorId) {
     errorDisplay.textContent = "This field cannot be empty.";
     return false;
   }
-}
-
   if (!namePattern.test(name)) {
     errorDisplay.textContent = "Only letters, apostrophes, and dashes are allowed.";
     return false;
