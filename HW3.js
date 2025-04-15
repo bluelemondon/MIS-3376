@@ -126,7 +126,7 @@ function validateSsn() {
     }
 }
 function validateDob() {
-    dob = document.getElementById("DOB");
+   let dob = document.getElementById("DOB");
     let date = new Date(dob.value);
     let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
 
@@ -145,6 +145,33 @@ function validateDob() {
         return true;
     }
 }
+
+function validateAddress1() {
+    var address = document.getElementById("address1").value.trim();
+    var addressError = document.getElementById("address1-error");
+    addressError.textContent = ""; // clear previous error
+
+    // Accepts letters, numbers, spaces, and basic punctuation
+    var pattern = /^[a-zA-Z0-9\s.,#-]{5,50}$/;
+
+    if (address === "") {
+        addressError.textContent = "Address cannot be empty.";
+        return false;
+    }
+
+    if (!pattern.test(address)) {
+        addressError.textContent = "Invalid characters in address.";
+        return false;
+    }
+
+    if (address.length < 5 || address.length > 50) {
+        addressError.textContent = "Address must be 5–50 characters.";
+        return false;
+    }
+
+    return true;
+}
+
 function validateCity() {
     city = document.getElementById("city").value.trim();
 
@@ -185,7 +212,7 @@ document.getElementById("username").addEventListener("input", function () {
 });
 // https://www.geeksforgeeks.org/password-matching-using-javascript/
 function validateUsername() {
-    uid = document.getElementById("username").value.toLowerCase();
+    let uid = document.getElementById("username").value.toLowerCase();
     document.getElementById("username").value = uid;
 
     if (uid.length == 0) {
@@ -276,7 +303,7 @@ function validatePassword() {
            var x= document.getElementById("password");
           var y= document.getElementById("confirmPassword");
 
-          if (x!= y) {
+          if (x.value!= y.value) {
                 alert("\nPassword did not match: Please try again...")
                 return false;
                     }    
@@ -326,7 +353,7 @@ function reviewdata() {
     if (!validateFname()) {
         valid = false;
     }
-    if (!validateMini()) {
+    if (!validateMinin()) {
         valid = false;
     }
     if (!validateLname()) {
