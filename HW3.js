@@ -285,14 +285,16 @@ function validatePassword() {
            var x= document.getElementById("password");
           var y= document.getElementById("confirmPassword");
 
-          if (x.value!= y.value) {
-                alert("\nPassword did not match: Please try again...")
-                return false;
-                    }    
-              else {
-                  return true;
-                   }
-        }
+              if (x !== y) {
+        document.getElementById("pword2-error").innerHTML = 
+        "Passwords don't match";
+        return false;
+    } else {
+        document.getElementById("pword2-error").innerHTML = 
+        "Passwords match";
+        return true;
+    }
+}
 
 //your example with new ids and edits
 function reviewdata() {
