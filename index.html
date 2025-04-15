@@ -80,7 +80,7 @@
                             pattern="^[A-Za-z]"
                             onblur="validateMidin()"
                             oninvalid="this.setCustomValidity('Can only contain a single letter')"
-                            oninput="this.setCustomValidity('')"
+                            oninput="validateMidin()"
                             placeholder="(MI)"
                             title="Letter, apostrophes, and dashes only"
                     > 
@@ -96,7 +96,7 @@
                             pattern="^[A-Za-z' -]+$"
                             onblur="validateLname()"
                             oninvalid="this.setCustomValidity('Only 1-30 characters, letters, apostrphe, nnumbers 2-5, dashes please')"
-                            oninput="this.setCustomValidity('')"
+                            oninput="validateLname()"
                             placeholder="(Last name)"
                             title="Enter last name"
                     > 
@@ -118,7 +118,7 @@
                             name="SSN" 
                             required
                             onblur="validateSsn()"
-                            oninput="this.setCustomValidity('')"
+                            oninput="validateSsn()"
                             oninvalid="this.setCustomValidity('Social Security number is Required')"
                             placeholder="(XXX-XX-XXXX)"
                             title="Enter SSN in the with 9 digits no dashes"
@@ -136,7 +136,7 @@
                             required
                             pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19[0-9]{2}|20[0-2][0-9])$"
                             onblur="validateDob()"
-                            oninput="this.setCustomValidity('')"
+                            oninput="validateDob()"
                             oninvalid="this.setCustomValidity('format MM/DD/YYYY')"
                             placeholder="MM-DD-YYYY"
                             title="Select Date of Birth"
@@ -191,7 +191,7 @@
                             required
                             onblur="validateAddr1()"
                             oninvalid="this.setCustomValidity('At least 1 address line Required')"
-                            oninput="this.setCustomValidity('')"
+                            oninput="validateAddr1()"
                             title="Enter primary address line"
                     >
                     <span class="error" id="address1-error"></span>
@@ -239,7 +239,7 @@
                     required
                     onblur="validateCity()"
                     oninvalid="this.setCustomValidity('Enter City')"
-                    oninput="this.setCustomValidity('')"
+                    oninput="validateCity()"
                     title="Enter city name"
                     >
                     <span class="error" id="city-error"></span>
@@ -311,7 +311,7 @@
                     required
                     onblur="validateZcode()"
                     oninvalid="this.setCustomValidity('5 Digit Zip/Postal Code required')"
-                    oninput="this.setCustomValidity('')"
+                    oninput="validateZcode()"
                     placeholder="5 digit zip"
                     title="Enter your 5-digit zip code with number and dash only"
                      >
@@ -406,7 +406,7 @@
                     pattern="^[A-Za-z-_]+$" 
                     onblur="validateUsername()"
                     oninvalid="this.setCustomValidity('Must be 5-30 characters, letters, underscore, and dashes only')" 
-                    oninput="this.setCustomValidity('')" 
+                    oninput="validateUsername()" 
                     placeholder="username" 
                     title="Choose a username (5-30 characters, letters, dashes, and underscores allowed)">
                     <span class="error" id="uid-error"></span>
@@ -424,8 +424,8 @@
                 id="email" 
                 required 
                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
-                oninvalid="this.setCustomValidity('Must be a valid email')" 
-                oninput="this.setCustomValidity('')" 
+                oninput="validateEmail()" 
+                oninvalid="this.setCustomValidity('')" 
                 placeholder="                                                                                 @gmail.com" title="Enter a valid email address (e.g., user@example.com)">
         <br><span id="emailError"></span></br>
         </td>
