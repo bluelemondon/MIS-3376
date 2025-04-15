@@ -411,3 +411,12 @@ function reviewdata() {
     doc.write(formoutput);
     doc.close();
 }
+document.getElementById("password").addEventListener("input", validatePassword);
+document.getElementById("confirmPassword").addEventListener("input", function () {
+    if (this.value !== document.getElementById("password").value) {
+        this.setCustomValidity("Passwords do not match.");
+    } else {
+        this.setCustomValidity("");
+    }
+});
+
