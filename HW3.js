@@ -117,8 +117,7 @@ function validateSsn() {
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
 
     if (!ssnR.test(ssn)) {
-        document.getElementById("ssn-error").innerHTML = 
-        "Please enter a valid 9 digit SSN";
+        alert( "Please enter a valid 9 digit SSN");
         return false;
     } else {
         document.getElementById("ssn-error").innerHTML = "";
