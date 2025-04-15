@@ -45,11 +45,11 @@ function show3() {
   }
 }
 function validateFname() {
-  return validateNameField("fname", "fname-error");
+  return validateNameField("firstname", "fname-error");
 }
 
 function validateLname() {
-  return validateNameField("lname", "lname-error");
+  return validateNameField("lastname", "lname-error");
 }
 
 // Shared logic for both
@@ -64,6 +64,7 @@ function validateNameField(fieldId, errorId) {
     errorDisplay.textContent = "This field cannot be empty.";
     return false;
   }
+}
 
   if (!namePattern.test(name)) {
     errorDisplay.textContent = "Only letters, apostrophes, and dashes are allowed.";
@@ -94,6 +95,7 @@ function validateMinin() {
         return true;
     }
 }
+
 function validateSsn() {
     const ssn = document.getElementById("socialsec").value;
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
@@ -200,6 +202,7 @@ function validateUsername() {
         return true;
     }
 }
+
 function validateEmail() {
     var email = document.getElementById("email").value;
     var emailError = document.getElementById("emailError");
@@ -366,3 +369,4 @@ function reviewdata() {
     doc.open();
     doc.write(formoutput);
     doc.close();
+}
