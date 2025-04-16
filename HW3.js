@@ -340,6 +340,14 @@ function reviewdata() {
     doc.close();
 }
 
+function closeReview() {
+    var iframe = document.getElementById("reviewFrame");
+    var btn = document.getElementById("closeReviewBtn");
+    iframe.style.display = "none";
+    btn.style.display = "none";
+}
+
+
    function validateAll() {
     let valid = true;
 
