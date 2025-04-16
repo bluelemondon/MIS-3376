@@ -376,7 +376,7 @@ function closeReview() {
 }
 
     function showAlert() {
-    var alertBox = document.getElementById("alert-foot");
+    var alertBox = document.getElementById("alert-subject");
     var closeAlert = document.getElementById("closealert");
 
     alertBox.style.display = "block";
