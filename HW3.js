@@ -369,10 +369,10 @@ function closeReview() {
         document.getElementById("submit").disabled = false;
         
         // Optionally, you can redirect to the "thank you" page after successful validation
-        window.location.href = "thankyou.html";  // Redirect to thank you page
-    } else {
-        showAlert();  // Show alert if there's a validation issue
-    }
+
+    }  else{
+        showAlert();
+     }
 }
 
     function showAlert() {
