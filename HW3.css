@@ -60,3 +60,16 @@ select {
   border-radius: 10px;
 }
 
+.pword-message {
+    text-align: right;
+    font-family: Pick a font;
+    font-weight: Pick a weightfont;
+    position: relative;
+    left: 100px;
+    background: transparent;
+    padding: 10px;
+    border-spacing: 2px;
+    border-radius: 20px;
+    color: Pick a color;
+}
+
