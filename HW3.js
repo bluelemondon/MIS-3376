@@ -6,7 +6,7 @@
     Purpose: Homework1 MIS 3376
 **/
 /*got resources from misso but heavily edited them to do what I wanted using online learning resources like W3.
-no code except the misso template was directly copied*/
+no code except the misso template was directly copied unless direct credit shown*/
 //from w3schools
 document.getElementById("today").innerHTML = new Date().toLocaleDateString();
     const today = new Date();
