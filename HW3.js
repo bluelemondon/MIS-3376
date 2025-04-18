@@ -281,7 +281,7 @@ function validatePassword() {
     }
 }
 
- function confirmPassword() {
+ function validateconfirmPassword() {
   var password = document.getElementById("password").value;
   var confirm = document.getElementById("confirmPassword").value;
 
