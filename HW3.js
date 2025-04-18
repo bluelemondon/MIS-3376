@@ -285,7 +285,7 @@ function validatePassword() {
   var password = document.getElementById("password").value;
   var confirm = document.getElementById("confirmPassword").value;
 
-  var error = document.getElementById("confirm-error");
+  var error = document.getElementById("pword2-error");
 
   if (password !== confirm) {
     error.textContent = "Passwords do not match.";
