@@ -364,15 +364,17 @@ function closeReview() {
     if (!validatePassword()) { valid = false; }
     if (!confirmPassword()) { valid = false; }
 
-    if (valid) {
-        // If everything is valid, enable the submit button
-        document.getElementById("submit").disabled = false;
-        
-        // Optionally, you can redirect to the "thank you" page after successful validation
+    const submitBtn = document.getElementById("submit");
 
-    }  else{
-        showAlert();
-     }
+    if (valid) {
+        submitBtn.value = "Submit";
+        submitBtn.onclick = function () {
+            document.getElementById("careform").submit(); // actually submits the form
+        };
+    } else {
+        submitBtn.value = "Validate";
+        showAlert(); // optional alert if invalid
+    }
 }
 
     function showAlert() {
