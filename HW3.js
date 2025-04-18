@@ -5,7 +5,8 @@
     Date Updated:2025-01-09
     Purpose: Homework1 MIS 3376
 **/
-
+/*got resources from misso but heavily edited them to do what I wanted using online learning resources like W3.
+no code except the misso template was directly copied*/
 //from w3schools
 document.getElementById("today").innerHTML = new Date().toLocaleDateString();
     const today = new Date();
@@ -281,18 +282,19 @@ function validatePassword() {
 }
 
  function confirmPassword() {
-           var x= document.getElementById("password");
-          var y= document.getElementById("confirmPassword");
+  var password = document.getElementById("password").value;
+  var confirm = document.getElementById("confirmPassword").value;
 
-          if (x.value!= y.value) {
-                alert("\nPassword did not match: Please try again...")
-                return false;
-                    }    
-              else {
-        document.getElementById("pword2-error").innerHTML = "";
-        return true;
-                   }
-        }
+  var error = document.getElementById("confirm-error");
+
+  if (password !== confirm) {
+    error.textContent = "Passwords do not match.";
+    return false;
+  } else {
+    error.textContent = "";
+    return true;
+  }
+}
 
 //your example with new ids and edits
 function reviewdata() {
