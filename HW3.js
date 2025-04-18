@@ -369,7 +369,7 @@ function closeReview() {
     if (valid) {
         submitBtn.value = "Submit";
         submitBtn.onclick = function () {
-            document.getElementById("careform").submit(); // actually submits the form
+            window.location.href = "submisson.html"; // actually submits the form
         };
     } else {
         submitBtn.value = "Validate";
