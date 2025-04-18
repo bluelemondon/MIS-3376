@@ -131,9 +131,7 @@ function validateDob() {
 function validateAddr1() {
     var address = document.getElementById("addr1").value.trim();
     var addressError = document.getElementById("addr1-error");
-    addressError.textContent = ""; // clear previous error
-
-    // Accepts letters, numbers, spaces, and basic punctuation
+    addressError.textContent = "";
     var pattern = /^[a-zA-Z0-9\s.,#-]{5,50}$/;
 
     if (address === "") {
@@ -364,16 +362,15 @@ function closeReview() {
     if (!validatePassword()) { valid = false; }
     if (!confirmPassword()) { valid = false; }
 
-    const submitBtn = document.getElementById("submit");
-
-    if (valid) {
-        submitBtn.value = "Submit";
-        submitBtn.onclick = function () {
-            window.location.href = "submisson.html"; // actually submits the form
-        };
+  if (valid) {
+        const submitBtn = document.getElementById("submit");
+        submitBtn.textContent = "Submitting...";
+        document.getElementById("careform").action = "submission.html";
+        document.getElementById("careform").submit();
     } else {
-        submitBtn.value = "Validate";
-        showAlert(); // optional alert if invalid
+        // Reset button and show alert if validation fails
+        document.getElementById("submit").textContent = "Validate";
+        showAlert();
     }
 }
 
