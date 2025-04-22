@@ -362,7 +362,7 @@ function closeReview() {
     if (!validateEmail()) { valid = false; }
     if (!validateUsername()) { valid = false; }
     if (!validatePassword()) { valid = false; }
-    if (!confirmPassword()) { valid = false; }
+    if (!validateconfirmPassword()) { valid = false; }
 
   if (valid) {
         const submitBtn = document.getElementById("submit");
