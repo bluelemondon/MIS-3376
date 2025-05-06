@@ -41,6 +41,13 @@
         </table>
      </div>
     <div id="body">
+        <center>
+            <span id="welgreet"></span>
+            <span id="welgreet"></span>
+        </center>
+        <div class="iframe-container">
+            <iframe class="frame" src="https://cat-bounce.com/" frameborder="6px"></iframe>
+        </div>
         <form id="careform" name="careform" action="submission.html" onsubmit="return checkPassword();">
         <table class="styleform" align="center">
             <tr>
@@ -482,6 +489,19 @@
             <input type="checkbox" onclick="show3()" title="Check to show the password">Show
         </td>
     </tr>
+    <tr>
+    <td class="td1">
+        <label for="save-info">Save Log In Info</label>
+    </td>
+    <td>
+        <input
+            type="checkbox"
+            id="remember-me"
+            name="remember-me"
+            checked
+        />
+    </td>
+</tr>
     <tr align="center">
         <td>
             <iframe id="reviewFrame" style="width: 100%; height: 200px; border: 1px solid black;"></iframe>
