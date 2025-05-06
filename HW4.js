@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  var firstName = getCookie("firstName");
+  var firstName = getCookie("firstname");
   if (firstName) {
     document.getElementById("welgreet1").innerHTML = "Welcome back, " + firstName + "!<br>";
     document.getElementById("welgreet2").innerHTML =
