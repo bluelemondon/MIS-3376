@@ -390,7 +390,7 @@ function setCookie(cname, cvalue, expDays) {
     var day = new Date();
     day.setTime(day.getTime() + (expDays * 12 * 00 * 00 * 1));
     var expires = "expires=" + day.toUTCString();
-    document.cookie = name + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 function getCookie(cname) {
     var cookieId = cname + "=";
@@ -407,15 +407,15 @@ function getCookie(cname) {
 inputs.forEach(function (input) {
     var inputElement = document.getElementById(input.id);
 
-    var cookieValue = getCookie(input.cookieName);
+    var cookieValue = getCookie(input.cookieId);
     if (cookieValue !== "") {
-        inputElement.value = cookieVal;
+        inputElement.value = cookieValue;
     }
     inputElement.addEventListener("input", function () {
         setCookie(input.cookieId, inputElement.value, 30);
     });
 });
-var firstName = getCookie("firstName");
+var firstName = getCookie("firstname");
 if (firstName !== "") {
     document.getElementById("welgreet1").innerHTML = "Welcome back, " + firstName + "!<br>";
     document.getElementById("welgreet2").innerHTML =
@@ -434,7 +434,7 @@ document.getElementById("save-info").addEventListener("change", function () {
     if (!rememberMe) {
         // If "Remember Me" is unchecked, delete cookies
         deleteAllCookies();
-        console.log("All cookies deleted because 'Remember Me' is unchecked.");
+        console.log("Cookies deleted; 'Save-info' is unchecked.");
     } else {
         // If "Remember Me" is checked or rechecked, save cookies
         inputs.forEach(function (input) {
