@@ -428,7 +428,7 @@ if (firstName !== "") {
         location.reload();
     });
 }
-document.getElementById("remember-me").addEventListener("change", function () {
+document.getElementById("save-info").addEventListener("change", function () {
     const rememberMe = this.checked;
 
     if (!rememberMe) {
@@ -443,7 +443,7 @@ document.getElementById("remember-me").addEventListener("change", function () {
                 setCookie(input.cookieId, inputElement.value, 30);
             }
         });
-        console.log("Remember-me is checked;Cookies enabled.");
+        console.log("Save-info is checked;Cookies enabled.");
     }
 });
 function deleteAllCookies() {
