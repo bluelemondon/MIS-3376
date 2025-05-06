@@ -23,6 +23,8 @@ table.header, th.header{
   font-family: cursive;
   background-color:#054416;
   color: rgb(5, 6, 6);
+  position:sticky;
+  z-index:0px;
 }
 
 table.Patientinfo{
@@ -104,4 +106,7 @@ select {
     text-align: center;
     font-family: pick a font;
 }
-
+.iframe-container{
+  position:sticky;
+  z-index:-1;
+}
