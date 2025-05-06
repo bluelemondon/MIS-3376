@@ -9,15 +9,15 @@
 no code except the misso template was directly copied unless direct credit shown*/
 //from w3schools
 document.getElementById("today").innerHTML = new Date().toLocaleDateString();
-    const today = new Date();
-    const minDate = new Date(today.getFullYear() - 120, today.getMonth(), today.getDate());
-    const maxDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  // Format the dates to 'YYYY-MM-DD'
-    const minDateString = minDate.toISOString().split('T')[0]; // 'YYYY-MM-DD' format
-    const maxDateString = maxDate.toISOString().split('T')[0]; // 'YYYY-MM-DD' format
- // Set the min and max attributes for the date input
-    document.getElementById('DOB').setAttribute('min', minDateString);
-    document.getElementById('DOB').setAttribute('max', maxDateString);
+const today = new Date();
+const minDate = new Date(today.getFullYear() - 120, today.getMonth(), today.getDate());
+const maxDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+// Format the dates to 'YYYY-MM-DD'
+const minDateString = minDate.toISOString().split('T')[0]; // 'YYYY-MM-DD' format
+const maxDateString = maxDate.toISOString().split('T')[0]; // 'YYYY-MM-DD' format
+// Set the min and max attributes for the date input
+document.getElementById('DOB').setAttribute('min', minDateString);
+document.getElementById('DOB').setAttribute('max', maxDateString);
 
 //end of w3 schools
 function show1() {
@@ -187,7 +187,6 @@ function validateZcode() {
 
 var emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-
 document.getElementById("username").addEventListener("input", function () {
   this.value = this.value.replace(/\s+/g, '').toLowerCase();
 });
@@ -262,7 +261,7 @@ function validatePassword() {
     if (!pword.match(/[0-9]/)) {
       errorMessage.push("Enter at least one number");
     }
-    if (!pword.match(/[!\@#\$%&*\-_\\.+\(\)]/)) {
+    if (!pword.match(/[!\@#\$%&*\-_\\.\+\(\)]/)) {
       errorMessage.push("Enter at least one special character");
     }
     if (pword.includes(uid) && uid !== "") {
@@ -296,101 +295,12 @@ function validatePassword() {
   }
 }
 
-//your example with new ids and edits
-function reviewdata() {
-    var formcontents = document.getElementById("careform");
-    var formoutput = "Form Data:\n";
-    var datatype;
-    var i;
-
-    for (i = 0; i < formcontents.elements.length; i++) {
-        var element = formcontents.elements[i];
-        var name = element.name;
-        var value = element.value;
-        datatype = element.type;
-
-        if (value !== "") {
-            switch (datatype) {
-                case "checkbox":
-                    if (element.checked) {
-                        formoutput += `${name}: ${value} (Checked)\n`;
-                    }
-                    break;
-                case "radio":
-                    if (element.checked) {
-                        formoutput += `${name}: ${value} (Selected)\n`;
-                    }
-                    break;
-                case "button":
-                case "submit":
-                case "reset":
-                    break;
-                default:
-                    formoutput += `${name}: ${value}\n`;
-            }
-        }
-    }
-        var iframe = document.getElementById("reviewFrame");
-    iframe.style.display = "block"; 
-    // Show form output in iframe
-    var iframe = document.getElementById("reviewFrame");
-    var doc = iframe.contentDocument || iframe.contentWindow.document;
-    doc.open();
-    doc.write(formoutput);
-    doc.close();
-}
-
-function closeReview() {
-    var iframe = document.getElementById("reviewFrame");
-    var btn = document.getElementById("closeReviewBtn");
-    iframe.style.display = "none";
-    btn.style.display = "none";
-}
-
-
-   function validateAll() {
-    let valid = true;
-
-    if (!validateFname()) { valid = false; }
-    if (!validateMidin()) { valid = false; }
-    if (!validateLname()) { valid = false; }
-    if (!validateDob()) { valid = false; }
-    if (!validateSsn()) { valid = false; }
-    if (!validateAddr1()) { valid = false; }
-    if (!validateCity()) { valid = false; }
-    if (!validateZcode()) { valid = false; }
-    if (!validateEmail()) { valid = false; }
-    if (!validateUsername()) { valid = false; }
-    if (!validatePassword()) { valid = false; }
-    if (!validateconfirmPassword()) { valid = false; }
-
-  if (valid) {
-        const submitBtn = document.getElementById("submit");
-        submitBtn.textContent = "Submitting...";
-        document.getElementById("careform").action = "submission.html";
-        document.getElementById("careform").submit();
-    } else {
-        // Reset button and show alert if validation fails
-        document.getElementById("submit").textContent = "Validate";
-        showAlert();
-    }
-}
-
-    function showAlert() {
-    var alertBox = document.getElementById("alert-box");
-    var closeAlert = document.getElementById("close-alert");
-
-    alertBox.style.display = "block";
-    closeAlert.onclick = function() {
-        alertBox.style.display = "none";
-    };
-}
-
+// COOKIE FUNCTIONS
 function setCookie(cname, cvalue, expDays) {
     var day = new Date();
     day.setTime(day.getTime() + (expDays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + day.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + encodeURIComponent(cvalue) + ";" + expires + ";path=/";
 }
 function getCookie(cname) {
     var cookieId = cname + "=";
@@ -399,62 +309,11 @@ function getCookie(cname) {
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i].trim();
         if (cookie.indexOf(cookieId) == 0) {
-            return cookie.substring(cookieId.length, cookie.length);
+            return decodeURIComponent(cookie.substring(cookieId.length, cookie.length));
         }
     }
     return "";
 }
-const inputs = [
-  { id: "firstname",    cookieId: "firstname" },
-  { id: "lastname",     cookieId: "lastname"  },
-  { id: "DOB",        cookieId: "DOB"     },
-  { id: "username",        cookieId: "username"     },
-  { id: "email",        cookieId: "email"     },
-  { id: "password",        cookieId: "password"     }
-    ];
-    
-inputs.forEach(function (input) {
-    var inputElement = document.getElementById(input.id);
-
-    var cookieValue = getCookie(input.cookieId);
-    if (cookieValue !== "") {
-        inputElement.value = cookieValue;
-    }
-    inputElement.addEventListener("input", function () {
-        setCookie(input.cookieId, inputElement.value, 30);
-    });
-});
-var firstName = getCookie("firstname");
-if (firstName !== "") {
-    document.getElementById("welgreet1").innerHTML = "Welcome back, " + firstName + "!<br>";
-    document.getElementById("welgreet2").innerHTML =
-        "<a href='#' id='new-user'>Not " + firstName + "? Click here to start a new form.</a>";
-
-    document.getElementById("new-user").addEventListener("click", function () {
-        inputs.forEach(function (input) {
-            setCookie(input.cookieId, "", -1);
-        });
-        location.reload();
-    });
-}
-document.getElementById("save-info").addEventListener("change", function () {
-    const rememberMe = this.checked;
-
-    if (!rememberMe) {
-        // If "Remember Me" is unchecked, delete cookies
-        deleteAllCookies();
-        console.log("Cookies deleted; 'Save-info' is unchecked.");
-    } else {
-        // If "Remember Me" is checked or rechecked, save cookies
-        inputs.forEach(function (input) {
-            const inputElement = document.getElementById(input.id);
-            if (inputElement.value.trim() !== "") {
-                setCookie(input.cookieId, inputElement.value, 30);
-            }
-        });
-        console.log("Save-info is checked;Cookies enabled.");
-    }
-});
 function deleteAllCookies() {
     document.cookie.split(";").forEach(function (cookie) {
         let eqPos = cookie.indexOf("=");
@@ -462,10 +321,53 @@ function deleteAllCookies() {
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
     });
 }
-document.addEventListener("DOMContentLoaded", function () {
-    const rememberMe = document.getElementById("save-info").checked;
 
-    if (!rememberMe) {
-        deleteAllCookies();
+// WRAP COOKIE LOGIC IN DOMContentLoaded
+document.addEventListener("DOMContentLoaded", function() {
+  const inputs = [
+    { id: "firstname", cookieId: "firstname" },
+    { id: "lastname",  cookieId: "lastname"  },
+    { id: "DOB",       cookieId: "DOB"       },
+    { id: "username", cookieId: "username" },
+    { id: "email",    cookieId: "email"    },
+    { id: "password", cookieId: "password" }
+  ];
+
+  inputs.forEach(function (input) {
+    var el = document.getElementById(input.id);
+    if (!el) return;
+    var val = getCookie(input.cookieId);
+    if (val) el.value = val;
+    el.addEventListener("input", function () {
+      setCookie(input.cookieId, el.value, 30);
+    });
+  });
+
+  var firstName = getCookie("firstname");
+  if (firstName) {
+    document.getElementById("welgreet1").innerHTML = "Welcome back, " + firstName + "!<br>";
+    document.getElementById("welgreet2").innerHTML =
+      "<a href='#' id='new-user'>Not " + firstName + "? Click here to start a new form.</a>";
+    document.getElementById("new-user").addEventListener("click", function () {
+      inputs.forEach(function (input) {
+        setCookie(input.cookieId, "", -1);
+      });
+      location.reload();
+    });
+  }
+
+  document.getElementById("save-info").addEventListener("change", function () {
+    if (!this.checked) {
+      deleteAllCookies();
+      console.log("Cookies deleted; 'Save-info' is unchecked.");
+    } else {
+      inputs.forEach(function (input) {
+        var elm = document.getElementById(input.id);
+        if (elm && elm.value.trim() !== "") {
+          setCookie(input.cookieId, elm.value, 30);
+        }
+      });
+      console.log("Save-info is checked; cookies enabled.");
     }
+  });
 });
