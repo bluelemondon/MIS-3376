@@ -109,4 +109,11 @@ select {
 .iframe-container{
   position:sticky;
   z-index:-1;
+ right:0;
 }
+.footer{
+ position:fixed;
+ bottom:0;
+ 
+}
+ 
