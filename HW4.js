@@ -388,7 +388,7 @@ function closeReview() {
 
 function setCookie(cname, cvalue, expDays) {
     var day = new Date();
-    day.setTime(day.getTime() + (expDays * 12 * 00 * 00 * 1));
+    day.setTime(day.getTime() + (expDays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + day.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
@@ -404,6 +404,15 @@ function getCookie(cname) {
     }
     return "";
 }
+const inputs = [
+  { id: "firstname",    cookieId: "firstname" },
+  { id: "lastname",     cookieId: "lastname"  },
+  { id: "DOB",        cookieId: "DOB"     },
+  { id: "username",        cookieId: "username"     },
+  { id: "email",        cookieId: "email"     },
+  { id: "password",        cookieId: "password"     }
+    ];
+    
 inputs.forEach(function (input) {
     var inputElement = document.getElementById(input.id);
 
