@@ -24,7 +24,7 @@ table.header, th.header{
   background-color:#054416;
   color: rgb(5, 6, 6);
   position:sticky;
-  z-index:0px;
+  top:0;
 }
 
 table.Patientinfo{
