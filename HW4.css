@@ -19,7 +19,7 @@ body {
     color: rgb(0, 0, 0);
     font-family: "Source Sans Pro", sans-serif;}
 
-.header{
+table.header thead th{
   font-family: cursive;
   background-color:#054416;
   color: rgb(5, 6, 6);
