@@ -12,6 +12,13 @@
     border: 1px solid black;
     display: none;
 }
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #054416;
+  width: 100%;
+}
 
 
 body {
